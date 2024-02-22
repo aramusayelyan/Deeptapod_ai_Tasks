@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style1.css">
+    <title>TASK 6</title>
+</head>
+
+<body>
+    <div class="input">
+        <div class="input2">
+        <label for="text">Enter a text:</label>
+        <textarea name="text" id="text" cols="30" rows="10"></textarea>
+        <button onclick = "showtext()">Display</button>
+        <p id="paragraph"></p></div>
+    </div>
+    <script>
+        function showtext(){
+            var input = document.getElementById("text").value;
+            var paragraph = document.getElementById("paragraph").innerText = input;
+
+        }
+    </script>
+</body>
+
+</html>
