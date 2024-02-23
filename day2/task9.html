@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>task 9</title>
+</head>
+
+<body>
+    <form id="form">
+        <label for="email">Gmail</label>
+        <input type="email" id="email" name="email">
+        <button type="button" onclick="foo()">Submit</button>
+    </form>
+
+    <script>
+        function foo() {
+            var input = document.getElementById("email").value;
+            if (input === "") {
+                alert("Please enter email address");
+            } else {
+                document.getElementById("form").submit();
+            }
+        }
+    </script>
+</body>
+
+</html>
