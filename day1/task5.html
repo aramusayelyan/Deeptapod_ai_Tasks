@@ -13,11 +13,19 @@
 <button id="button3" style="background-color:blue;" onclick="changeColor(this)">Blue</button>
 
 <script>
-  function changeColor(button) {
-    var body = document.getElementById("body");
-    var color = button.style.backgroundColor;
-    body.style.backgroundColor = color;
-  }
+   function chang(itemId) {
+            const item = document.getElementById(itemId);
+            item.addEventListener('mouseover', () => {
+                item.style.color = 'red';
+            });
+            item.addEventListener('mouseout', () => {
+                item.style.color = 'black';
+            });
+        }
+
+      chang('item1');
+      chang('item2');
+      chang('item3');
 </script>
 
 </body>

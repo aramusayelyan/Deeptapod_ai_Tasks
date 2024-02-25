@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>   
+ 
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> 
+    <title>Ֆիզիկ</title>
+   <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/aramusayelyan/Fizik/main/img/logo.png">
+  </head>
+  <body>
+    <header>
+      <nav class="navbar">
+      <a href="https://xn--39ajbq5i.xn--y9a3aq/" class="nav-branding"><img class="nav-branding" src="https://raw.githubusercontent.com/aramusayelyan/Fizik/main/img/logo.png" alt=""></a>
+           <ul class="nav-menu">
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="https://xn--39ajbq5i.xn--y9a3aq/">Գլխավոր</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://xn--39ajbq5i.xn--y9a3aq/formula.html">Բանաձևեր</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://xn--39ajbq5i.xn--y9a3aq/add.html">Հավելվածներ</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://xn--39ajbq5i.xn--y9a3aq/about_me.html">Մեր Մասին</a>
+            </li>   
+            <li class="nav-item">
+              <a class="nav-link" href="https://xn--39ajbq5i.xn--y9a3aq/PhysBot/index.html">PhysBot</a>
+            </li>   
+
+           </ul>
+          <div class="hamburger">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+          </div>
+          </nav>
+    </header>
+    <script>
+
+const hamburger = document.querySelector(".hamburger");
+const navMenu = document.querySelector(".nav-menu");
+
+hamburger.addEventListener("click", ()=>{
+  hamburger.classList.toggle("active");
+  navMenu.classList.toggle("active");
+})
+
+document.querySelectorAll(".nav-link").forEach(n => n.addEventListener("click",() => {
+  hamburger.classList.remove("active")
+  navMenu.classList.remove("active")
+}))
+    </script>
+  </body>
+</html>

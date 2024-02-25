@@ -1,0 +1,59 @@
+<!-- chatGPT copy -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Auto-save Form</title>
+</head>
+<body>
+
+<form id="myForm">
+  <label for="firstName">First Name:</label><br>
+  <input type="text" id="firstName" name="firstName"><br>
+  <label for="lastName">Last Name:</label><br>
+  <input type="text" id="lastName" name="lastName"><br><br>
+  <button type="submit">Submit</button>
+</form>
+
+<script>
+function throttle(func, limit) {
+  let inThrottle;
+  return function() {
+    const args = arguments;
+    const context = this;
+    if (!inThrottle) {
+      func.apply(context, args);
+      inThrottle = true;
+      setTimeout(() => inThrottle = false, limit);
+    }
+  };
+}
+
+function saveToLocalStorage() {
+  const formData = {
+    firstName: document.getElementById('firstName').value,
+    lastName: document.getElementById('lastName').value
+  };
+  localStorage.setItem('formData', JSON.stringify(formData));
+}
+
+function restoreFromLocalStorage() {
+  const savedData = localStorage.getItem('formData');
+  if (savedData) {
+    const formData = JSON.parse(savedData);
+    document.getElementById('firstName').value = formData.firstName;
+    document.getElementById('lastName').value = formData.lastName;
+  }
+}
+
+const throttledSaveToLocalStorage = throttle(saveToLocalStorage, 1000);
+
+document.getElementById('firstName').addEventListener('input', throttledSaveToLocalStorage);
+document.getElementById('lastName').addEventListener('input', throttledSaveToLocalStorage);
+
+document.addEventListener('DOMContentLoaded', restoreFromLocalStorage);
+</script>
+
+</body>
+</html>
