@@ -13,6 +13,8 @@
 <button id="button3" style="background-color:blue;" onclick="changeColor(this)">Blue</button>
 
 <script>
+  // pay attention to function name, here "onclick="changeColor(this)" function name is changeColor, 
+  //   but in js code it's chang, so the corresponding function won't be called
    function chang(itemId) {
             const item = document.getElementById(itemId);
             item.addEventListener('mouseover', () => {

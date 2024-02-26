@@ -13,6 +13,7 @@
 <script>
     function show(){
         var div = document.getElementById("div");
+        // there's difference between == and === in js, === checks data types as well, so in this case u should use ===
         if(div.style.display == "none"){
             div.style.display = "block";
         }else{
