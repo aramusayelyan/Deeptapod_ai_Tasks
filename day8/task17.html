@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 17</title>
+</head>
+<style>
+#filters{
+    background-color: #5656ff;
+    padding: 20px;
+}
+#products{
+    padding: 20px;
+}
+.products_box{
+    border-style: solid;
+    border-width: 2px;
+    border-color: transparent;
+}
+</style>
+<body>
+    <div id="filters">
+        <label for="category">Category:</label>
+        <select id="category">
+          <option value="all">All</option>
+          <option value="Home">Home</option>
+          <option value="Apparel">Apparel</option>
+          <option value="Electronics">Electronics</option>
+        </select>
+        
+        <label>Tags:</label>
+        <label><input type="checkbox" class="tag" value="eco-friendly"> Eco-friendly</label>
+        <label><input type="checkbox" class="tag" value="new"> New</label>
+        <label><input type="checkbox" class="tag" value="sale"> Sale</label>
+      </div>
+      
+      <div id="products"></div>
+      <script>
+        const products = [
+  { id: 1, name: "Eco-friendly Water Bottle", category: "Home", price: 15, tags: ["eco-friendly", "new"] },
+  { id: 2, name: "Organic Cotton T-shirt", category: "Apparel", price: 25, tags: ["eco-friendly"] },
+  { id: 3, name: "Wireless Headphones", category: "Electronics", price: 200, tags: ["new", "sale"] },
+
+];
+
+const filters = {
+  category: 'all',
+  tags: []
+};
+
+function renderProducts() {
+  const productsDiv = document.getElementById('products');
+  productsDiv.innerHTML = '';
+
+  const filteredProducts = products.filter(product => {
+    if (filters.category !== 'all' && product.category !== filters.category) {
+      return false;
+    }
+    if (filters.tags.length > 0 && !filters.tags.every(tag => product.tags.includes(tag))) {
+      return false;
+    }
+    return true;
+  });
+
+  if (filteredProducts.length === 0) {
+    productsDiv.textContent = 'No products found.';
+  } else {
+    filteredProducts.forEach(product => {
+      const productElement = document.createElement('div');
+      productElement.textContent = `${product.name} - $${product.price}`;
+      productsDiv.appendChild(productElement);
+    });
+  }
+}
+
+function update() {
+  const categorydiv = document.getElementById('category');
+  const tagCheckboxes = document.querySelectorAll('.tag');
+
+  categorydiv.addEventListener('change', () => {
+    filters.category = categorydiv.value;
+    renderProducts();
+  });
+
+  tagCheckboxes.forEach(checkbox => {
+    checkbox.addEventListener('change', () => {
+      if (checkbox.checked) {
+        filters.tags.push(checkbox.value);
+      } else {
+        const index = filters.tags.indexOf(checkbox.value);
+        if (index !== -1) {
+          filters.tags.splice(index, 1);
+        }
+      }
+      renderProducts();
+    });
+  });
+}
+
+renderProducts();
+update();
+
+      </script>
+</body>
+</html>
