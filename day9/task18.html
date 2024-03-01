@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 18</title>
+    <style>
+        #search {
+            background-color: #5656ff;
+            padding: 20px;
+        }
+
+        #books {
+            padding: 20px;
+        }
+
+        li {
+            max-width: 269px;
+            max-height: 246px;
+            background-color: beige;
+            list-style-type: none;
+            margin-bottom: 17px;
+            padding: 10px;
+        }
+
+        .highlight {
+            background-color: yellow;
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="search">
+
+        <input type="text" id="searchInput" placeholder="Search by title or author">
+    </div>
+    <ul id="bookList">
+
+    </ul>
+
+
+    <script>
+        const books = [
+            { id: 1, title: "The Great Gatsby", author: "F. Scott Fitzgerald", year: 1925 },
+            { id: 2, title: "To Kill a Mockingbird", author: "Harper Lee", year: 1960 },
+            { id: 3, title: "1984", author: "George Orwell", year: 1949 },
+        ];
+
+        const searchInput = document.getElementById("searchInput");
+        const bookList = document.getElementById("bookList");
+
+        function displayBooks(filteredBooks) {
+            bookList.innerHTML = "";
+            filteredBooks.forEach(book => {
+                const li = document.createElement("li");
+                const highlightedTitle = book.title.replace(new RegExp(searchInput.value, "gi"), match => `<span class="highlight">${match}</span>`);
+                const highlightedAuthor = book.author.replace(new RegExp(searchInput.value, "gi"), match => `<span class="highlight">${match}</span>`);
+                li.innerHTML = `${highlightedTitle} by ${highlightedAuthor}`;
+                bookList.appendChild(li);
+            });
+        }
+
+        function handleSearch() {
+            const searchTerm = searchInput.value.toLowerCase();
+            const filteredBooks = books.filter(book =>
+                book.title.toLowerCase().includes(searchTerm) ||
+                book.author.toLowerCase().includes(searchTerm)
+            );
+            displayBooks(filteredBooks);
+        }
+
+        searchInput.addEventListener("input", handleSearch);
+        handleSearch(); 
+    </script>
+</body>
+
+</html>
