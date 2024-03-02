@@ -1,0 +1,75 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+header {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+}
+.container {
+    display: flex;
+    flex: 1;
+}
+.sidebar {
+position: fixed;
+top: 100px;
+left: 0;
+width: 300px; 
+background-color: #f4f4f4;
+padding: 20px;
+overflow-y: auto;
+height: 100vh; 
+}
+.api-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+.api-list-item {
+    padding: 8px 0;
+    cursor: pointer;
+    font-size: 20px; 
+}
+.api-list-item:hover {
+    background-color: #eaeaea;
+}
+.main {
+    flex: 1;
+    padding: 20px;
+}
+.api-info {
+    display: none;
+}
+.api-info.active {
+    display: block;
+}
+#toggleBtn {
+    position: absolute;
+    top: 20px;
+    left: 20px; 
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+}
+#searchInput {
+    padding: 5px;
+    width: calc(100% - 40px); 
+    box-sizing: border-box;
+}
+.dis{
+    text-align: center;
+    margin-left: 520px;
+    width: 1000px;
+    height: 500px;
+    border-radius: 15px;
+    background-color: rgb(202, 202, 202);
+}.all{
+    margin-top: 70px;
+}
