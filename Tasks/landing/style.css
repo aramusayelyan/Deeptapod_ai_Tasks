@@ -1,0 +1,61 @@
+*{
+    margin: 4px 4px;
+}
+.navbar {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.nav_menu {
+    display: flex;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+.nav_items {
+    font-size: 20px;
+    list-style-type: none;
+    margin-right: 63px;
+}
+
+.profil_img {
+    width: 40px;
+    height: 27px;
+}
+
+.logo {
+    width: 50px;
+}
+.contener{
+    flex-direction: column;
+}
+.about{
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+}
+.big_text{
+    font-size: 70px;
+}
+.smal_txet{
+font-size: 25px;    
+}
+.home_gif{
+    width: 975px;
+}
+.home{
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+}
+section{
+    height: 100vh;
+}
+.header{
+    font-size: 50px;
+}
