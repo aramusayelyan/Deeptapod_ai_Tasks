@@ -1,4 +1,4 @@
-# Deeptapod.ai API Documentation
+# Deeptapod.ai API 
 
 Welcome to Deeptapod.ai API Documentation! 
 
